@@ -1,0 +1,29 @@
+# Example configuration
+# Data directory: /data/data-gitlab/
+# Domain or IP address: 10.0.0.1
+# HTTP port: 8082/tcp
+# HTTPS port: no
+# SSH port: 8083/tcp
+# Email disabled as no SMTP is configured
+
+version: '3.6'
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://10.0.0.1:8082'
+        gitlab_rails['gitlab_shell_ssh_port'] = 8083
+        gitlab_rails['initial_root_password'] = "password"
+        gitlab_rails['gitlab_email_enabled'] = false
+        # alertmanager['enable'] = false
+        # grafana['enable'] = false
+
+    ports:
+      - '8082:8082'
+      - '8083:22'
+    volumes:
+      - '/data/data-gitlab/config:/etc/gitlab'
+      - '/data/data-gitlab/logs:/var/log/gitlab'
+      - '/data/data-gitlab/data:/var/opt/gitlab'
