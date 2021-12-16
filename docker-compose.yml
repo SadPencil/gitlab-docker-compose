@@ -5,6 +5,7 @@
 # HTTPS port: no
 # SSH port: 8083/tcp
 # Email disabled as no SMTP is configured
+# Note: to disable gravatar, the only way is to disable it in Application Settings in the Admin Dashboard. https://gitlab.com/gitlab-org/gitlab-foss/-/issues/26008
 
 version: '3.6'
 services:
