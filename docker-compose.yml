@@ -28,4 +28,4 @@ services:
       - '/data/data-gitlab/config:/etc/gitlab'
       - '/data/data-gitlab/logs:/var/log/gitlab'
       - '/data/data-gitlab/data:/var/opt/gitlab'
-    shm_size: '2gb' # very important settings; can be larger if you have sufficient memory size
+    shm_size: '2gb' # very important settings
